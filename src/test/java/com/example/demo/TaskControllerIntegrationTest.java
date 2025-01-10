@@ -48,7 +48,6 @@ public class TaskControllerIntegrationTest {
 
     @Test
     public void testGetTaskById() throws Exception {
-        // Create a task first (use ID from the created task)
         Task task = new Task("Task 1", "Description 1", Status.PENDING);
         mockMvc.perform(post(BASE_URL)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -63,7 +62,6 @@ public class TaskControllerIntegrationTest {
 
     @Test
     public void testUpdateTask() throws Exception {
-        // Create the task first to get an ID
         Task task = new Task("Task 1", "Description 1", Status.PENDING);
         mockMvc.perform(post(BASE_URL)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -82,7 +80,6 @@ public class TaskControllerIntegrationTest {
 
     @Test
     public void testDeleteTask() throws Exception {
-        // Create a task to delete
         Task task = new Task("Task 1", "Description 1", Status.PENDING);
         mockMvc.perform(post(BASE_URL)
                 .contentType(MediaType.APPLICATION_JSON)

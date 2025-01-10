@@ -15,26 +15,23 @@ public class Task {
     private Long id;
 
     @NotEmpty(message = "Title cannot be empty")
-    private String title; // Title of the task
+    private String title;
     
     @Size(max = 500, message = "Description can't be longer than 500 characters")
-    private String description; // Description of the task
+    private String description; 
 
-    @Enumerated(EnumType.STRING) // Map enum as a string in the database
+    @Enumerated(EnumType.STRING) 
     @NotNull(message = "Status cannot be null")
-    private Status status; // Status of the task
+    private Status status; 
 
-    // Default constructor
     public Task() {}
 
-    // Parameterized constructor
     public Task(String title, String description, Status status) {
         this.title = title;
         this.description = description;
         this.status = status;
     }
 
-    // Enum for Status
     public enum Status {
         PENDING,
         IN_PROGRESS,

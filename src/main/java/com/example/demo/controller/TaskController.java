@@ -30,7 +30,6 @@ public class TaskController {
         String sortBy = sortParams[0];
         String sortOrder = sortParams[1];
 
-        // Create Pageable object based on parameters
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Order.by(sortBy).with(Sort.Direction.fromString(sortOrder))));
 
         List<Task> tasks = taskService.getAllTasks(pageable);
@@ -46,7 +45,7 @@ public class TaskController {
     @PostMapping
     public ResponseEntity<Task> createTask(@RequestBody Task task) {
         Task createdTask = taskService.saveTask(task);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdTask); // HttpStatus import added here
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdTask); 
     }
 
     @PutMapping("/{id}")

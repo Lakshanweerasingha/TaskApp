@@ -36,12 +36,12 @@ public class TaskUnitServiceTest {
         List<Task> tasks = new ArrayList<>();
         tasks.add(new Task("Task 1", "Description 1", Status.PENDING));
 
-        Pageable pageable = PageRequest.of(0, 10); // Mock Pageable
+        Pageable pageable = PageRequest.of(0, 10); 
         Page<Task> taskPage = new PageImpl<>(tasks, pageable, tasks.size());
 
         when(taskRepository.findAll(pageable)).thenReturn(taskPage);
 
-        List<Task> result = taskService.getAllTasks(pageable); // Pass Pageable
+        List<Task> result = taskService.getAllTasks(pageable); 
         assertEquals(1, result.size());
         assertEquals("Task 1", result.get(0).getTitle());
     }
@@ -68,17 +68,13 @@ public class TaskUnitServiceTest {
 
     @Test
 public void testDeleteTask() {
-    // Mock the findById to return a task when ID 1L is passed
     Task task = new Task("Task 1", "Description 1", Status.PENDING);
     when(taskRepository.findById(1L)).thenReturn(Optional.of(task));
 
-    // Mock delete to do nothing when called
     doNothing().when(taskRepository).delete(any(Task.class));
 
-    // Call the deleteTask method
     taskService.deleteTask(1L);
 
-    // Verify that delete was called once with the task
     verify(taskRepository, times(1)).delete(task);
 }
 

@@ -64,7 +64,6 @@
       <version>3.0.2</version>
   </dependency>
 
-  <!-- Bean Validation API Reference Implementation -->
   <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-validator</artifactId>
